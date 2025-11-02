@@ -1,117 +1,116 @@
 #!/usr/bin/env python3
 """
 Script para criar arquivo Excel de exemplo para o RPA de Notas Fiscais
-Execute este script para gerar o arquivo notas_fiscais.xlsx
+Execute este script para gerar o arquivo notas_fiscais.xlsx com dados de teste
 """
 
 import pandas as pd
 from datetime import datetime
 
 def criar_excel_exemplo():
-    """Cria arquivo Excel de exemplo com os dados das notas fiscais"""
+    """Cria arquivo Excel de exemplo com dados fictícios"""
     
-    # Dados de exemplo baseados na tabela HTML fornecida
+    # Dados de exemplo com CPFs e informações fictícias
     dados = [
         {
             'Data': '16/09/25',
-            'Nome_Cliente': 'Ana Claudia',
-            'CPF': '28471111829',
-            'Nome_Pet': 'Lili',
-            'Tipo_Servico': 'Consulta Veterinária',
+            'Nome_Cliente': 'Maria Silva Santos',
+            'CPF': '11122233344',
+            'Nome_Item': 'Serviço A',
+            'Tipo_Servico': 'Consulta Padrão',
             'Valor': 350.00,
-            'Endereco': 'R CLaudemeses dos Santos, 164',
-            'Cidade': 'Valinhos'
+            'Endereco': 'R das Flores, 164',
+            'Cidade': 'CIDADE_A'
         },
         {
             'Data': '16/09/25',
-            'Nome_Cliente': 'Paula Codina',
-            'CPF': '24924940801',
-            'Nome_Pet': 'Boy',
-            'Tipo_Servico': 'Banho e Tosa',
+            'Nome_Cliente': 'João Pedro Costa',
+            'CPF': '22233344455',
+            'Nome_Item': 'Serviço B',
+            'Tipo_Servico': 'Atendimento Especial',
             'Valor': 300.00,
-            'Endereco': 'R dez, 1335',
-            'Cidade': 'Campinas'
+            'Endereco': 'AV Principal, 1335',
+            'Cidade': 'CIDADE_B'
         },
         {
             'Data': '17/09/25',
-            'Nome_Cliente': 'Edvandro Trindade',
-            'CPF': '13777593850',
-            'Nome_Pet': 'Floquinho',
-            'Tipo_Servico': 'Consulta Clínica',
+            'Nome_Cliente': 'Ana Paula Oliveira',
+            'CPF': '33344455566',
+            'Nome_Item': 'Serviço C',
+            'Tipo_Servico': 'Consulta Técnica',
             'Valor': 350.00,
-            'Endereco': 'R 24 de Junho, 338',
-            'Cidade': 'Capivari'
+            'Endereco': 'R 24 de Maio, 338',
+            'Cidade': 'CIDADE_C'
         },
         {
             'Data': '18/09/25',
-            'Nome_Cliente': 'Maria Azevedo',
-            'CPF': '22489089897',
-            'Nome_Pet': 'Bruna',
-            'Tipo_Servico': 'Medicamento Animal',
+            'Nome_Cliente': 'Carlos Eduardo Lima',
+            'CPF': '44455566677',
+            'Nome_Item': 'Serviço D',
+            'Tipo_Servico': 'Manutenção',
             'Valor': 300.00,
-            'Endereco': 'R Helio Martins, 143',
-            'Cidade': 'Sumare'
+            'Endereco': 'R das Palmeiras, 143',
+            'Cidade': 'CIDADE_D'
         },
         {
             'Data': '19/09/25',
-            'Nome_Cliente': 'Marcia Prezoto',
-            'CPF': '09057375800',
-            'Nome_Pet': 'Pepe',
-            'Tipo_Servico': 'Medicamento Animal',
+            'Nome_Cliente': 'Patricia Fernandes',
+            'CPF': '55566677788',
+            'Nome_Item': 'Serviço E',
+            'Tipo_Servico': 'Instalação',
             'Valor': 300.00,
-            'Endereco': 'R Adolfo de Oliveira, 100',
-            'Cidade': 'Sumare'
+            'Endereco': 'R do Comércio, 100',
+            'Cidade': 'CIDADE_A'
         },
         {
             'Data': '19/05/25',
-            'Nome_Cliente': 'Rosangela Magalhes',
-            'CPF': '05187618865',
-            'Nome_Pet': 'Branquinha',
-            'Tipo_Servico': 'Medicamento Animal',
+            'Nome_Cliente': 'Roberto Alves',
+            'CPF': '66677788899',
+            'Nome_Item': 'Serviço F',
+            'Tipo_Servico': 'Configuração',
             'Valor': 330.00,
-            'Endereco': 'R 8, 181',
-            'Cidade': 'Sumare'
+            'Endereco': 'AV Central, 181',
+            'Cidade': 'CIDADE_B'
         },
-        # Dados adicionais para exemplo mais completo
         {
             'Data': '20/09/25',
-            'Nome_Cliente': 'João Silva',
-            'CPF': '12345678901',
-            'Nome_Pet': 'Rex',
-            'Tipo_Servico': 'Vacina',
+            'Nome_Cliente': 'Juliana Martins',
+            'CPF': '77788899900',
+            'Nome_Item': 'Serviço G',
+            'Tipo_Servico': 'Atualização',
             'Valor': 150.00,
-            'Endereco': 'R das Flores, 456',
-            'Cidade': 'Indaiatuba'
+            'Endereco': 'R das Acácias, 456',
+            'Cidade': 'CIDADE_EXEMPLO'
         },
         {
             'Data': '21/09/25',
-            'Nome_Cliente': 'Maria Santos',
-            'CPF': '98765432100',
-            'Nome_Pet': 'Luna',
-            'Tipo_Servico': 'Cirurgia',
+            'Nome_Cliente': 'Fernando Santos',
+            'CPF': '88899900011',
+            'Nome_Item': 'Serviço H',
+            'Tipo_Servico': 'Reparação',
             'Valor': 800.00,
-            'Endereco': 'Av Principal, 789',
-            'Cidade': 'Campinas'
+            'Endereco': 'AV dos Estados, 789',
+            'Cidade': 'CIDADE_C'
         },
         {
             'Data': '22/09/25',
-            'Nome_Cliente': 'Carlos Oliveira',
-            'CPF': '11122233344',
-            'Nome_Pet': 'Miau',
-            'Tipo_Servico': 'Exame',
+            'Nome_Cliente': 'Amanda Costa',
+            'CPF': '99900011122',
+            'Nome_Item': 'Serviço I',
+            'Tipo_Servico': 'Avaliação',
             'Valor': 120.00,
             'Endereco': 'R do Centro, 25',
-            'Cidade': 'Valinhos'
+            'Cidade': 'CIDADE_D'
         },
         {
             'Data': '23/09/25',
-            'Nome_Cliente': 'Ana Paula Costa',
-            'CPF': '55566677788',
-            'Nome_Pet': 'Thor',
-            'Tipo_Servico': 'Consulta de Rotina',
+            'Nome_Cliente': 'Ricardo Oliveira',
+            'CPF': '10011122233',
+            'Nome_Item': 'Serviço J',
+            'Tipo_Servico': 'Inspeção',
             'Valor': 250.00,
             'Endereco': 'R Nova Esperança, 88',
-            'Cidade': 'Sumare'
+            'Cidade': 'CIDADE_A'
         }
     ]
     
@@ -131,7 +130,7 @@ def criar_excel_exemplo():
             'A': 12,  # Data
             'B': 20,  # Nome_Cliente
             'C': 15,  # CPF
-            'D': 15,  # Nome_Pet
+            'D': 15,  # Nome_Item
             'E': 20,  # Tipo_Servico
             'F': 10,  # Valor
             'G': 35,  # Endereco
@@ -161,7 +160,7 @@ def validar_dados():
         print("\n🔍 Validação dos dados:")
         
         # Verificar colunas obrigatórias
-        colunas_obrigatorias = ['Data', 'Nome_Cliente', 'CPF', 'Nome_Pet', 'Tipo_Servico', 'Valor', 'Endereco', 'Cidade']
+        colunas_obrigatorias = ['Data', 'Nome_Cliente', 'CPF', 'Nome_Item', 'Tipo_Servico', 'Valor', 'Endereco', 'Cidade']
         colunas_faltando = [col for col in colunas_obrigatorias if col not in df.columns]
         
         if colunas_faltando:
@@ -205,18 +204,9 @@ def criar_template_vazio():
     
     # Criar DataFrame vazio com apenas os cabeçalhos
     template = pd.DataFrame(columns=[
-        'Data', 'Nome_Cliente', 'CPF', 'Nome_Pet', 
+        'Data', 'Nome_Cliente', 'CPF', 'Nome_Item', 
         'Tipo_Servico', 'Valor', 'Endereco', 'Cidade'
     ])
-    
-    # Adicionar algumas linhas de exemplo comentadas
-    exemplos = [
-        "# Exemplo: 16/09/25, Ana Claudia, 28471111829, Lili, Consulta, 350.00, R das Flores 123, Valinhos",
-        "# Data no formato DD/MM/AA",
-        "# CPF com 11 dígitos, sem pontos ou hífens", 
-        "# Valor com ponto decimal (350.00)",
-        "# Endereço: R Nome da Rua, Número"
-    ]
     
     # Salvar template
     with pd.ExcelWriter('template_notas_fiscais.xlsx', engine='openpyxl') as writer:
@@ -235,9 +225,14 @@ def criar_template_vazio():
             cell.fill = cell.fill.copy(fgColor="DDDDDD")
     
     print("✅ Template vazio criado: 'template_notas_fiscais.xlsx'")
+    print("\n📝 Instruções de preenchimento:")
+    print("   • Data: formato DD/MM/AA (ex: 16/09/25)")
+    print("   • CPF: 11 dígitos sem pontos ou hífens (ex: 12345678901)")
+    print("   • Valor: use ponto decimal (ex: 350.00)")
+    print("   • Endereço: R Nome da Rua, Número (ex: R das Flores, 123)")
 
 if __name__ == "__main__":
-    print("🏥 Gerador de Excel para RPA de Notas Fiscais Veterinárias")
+    print("📊 Gerador de Excel para RPA de Notas Fiscais")
     print("=" * 55)
     
     # Menu de opções
@@ -264,4 +259,4 @@ if __name__ == "__main__":
         print("❌ Opção inválida. Execute novamente.")
     
     print("\n" + "=" * 55)
-    print("Arquivos prontos para usar com o RPA!")
+    print("✅ Arquivos prontos para usar com o RPA!")
